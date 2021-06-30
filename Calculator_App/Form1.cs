@@ -11,40 +11,145 @@ using System.Windows.Forms;
 namespace Calculator_App
 {
     public partial class Form1 : Form
-    {
+    {   
+
+        //Where we store all the data
+        private decimal First = 0.0m;
+        private decimal Second = 0.0m;
+        private decimal Ans = 0.0m;
+        private int OperationType = 0;
+
+        //Operations
+        public enum Operations
+        {
+            addition = 1,
+            subraction = 2,
+            multiplication = 3,
+            division = 4,
+        }
+
+
         public Form1()
         {
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        //Button Click Events
+        private void NumClick(object sender, EventArgs e)
         {
+            Button btn = (Button)sender;
 
+            if (DisplayBox.Text == "0")
+            {
+                DisplayBox.Clear();
+            }
+            DisplayBox.Text = DisplayBox.Text + btn.Text;
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        //Decimal Point Click Event
+        private void DecimalPoint_Click(object sender, EventArgs e)
         {
-
+            if (!textBox1.Text.Contains('.'))
+            {
+                DisplayBox.Text += '.';
+            }
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        //Negative and Positive CLick Event
+        private void Sign_Click(object sender, EventArgs e)
         {
-
+            if (!DisplayBox.Text.Contains("-"))
+            {
+                DisplayBox.Text = "-" + DisplayBox.Text;
+            }
+            else
+            {
+                DisplayBox.Text = DisplayBox.Text.Trim('-');
+            }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        //Save the 1st and continue with the operation
+        private void Save(int operation)
         {
-
+            OperationType = operation;
+            First = Convert.ToDecimal(DisplayBox.Text);
+            DisplayBox.Text = "0";
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        //Operation Click Event
+        private void OperationClick(object sender, EventArgs e)
         {
+            Button op = (Button)sender;
 
+            if (op.Text == "+")
+            {
+                Save((int)Operations.addition);
+            }
+
+            if (op.Text == "-")
+            {
+                Save((int)Operations.subraction);
+            }
+
+            if (op.Text == "*")
+            {
+                Save((int)Operations.multiplication);
+            }
+
+            if (op.Text == "/")
+            {
+                Save((int)Operations.division);
+            }
         }
 
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
+        //Does the operation when = is clicked
+        private void Equals_Click(object sender, EventArgs e)
         {
+            Second = Convert.ToDecimal(DisplayBox.Text);
+            switch(OperationType)
+            {
+                case 1:
+                    Ans = First + Second;
+                    break;
+                case 2:
+                    Ans = First - Second;
+                    break;
+                case 3:
+                    Ans = First * Second;
+                    break;
+                case 4:
+                    Ans = First / Second;
+                    break;
+            }
+            DisplayBox.Text = Ans.ToString();
+        }
 
+        //Remove 1 char from the string
+        private void delete_Click(object sender, EventArgs e)
+        {
+            int index = DisplayBox.Text.Length;
+            index--;
+            DisplayBox.Text = DisplayBox.Text.Remove(index);
+            if (DisplayBox.Text == "")
+            {
+                DisplayBox.Text = "0";
+            }
+        }
+
+        //Clear DisplayBox
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            DisplayBox.Text = "0";
+        }
+
+        //Clear all Entries
+        private void ClearEntry_Click(object sender, EventArgs e)
+        {
+            DisplayBox.Text = "0";
+            First = 0.0m;
+            Second = 0.0m;
+            Ans = 0.0m;
+            OperationType = 0;
         }
     }
 }

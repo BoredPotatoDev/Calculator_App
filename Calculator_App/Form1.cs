@@ -11,7 +11,9 @@ using System.Windows.Forms;
 namespace Calculator_App
 {
     public partial class Form1 : Form
-    {   
+    {
+
+        bool HasAns = false;
 
         //Where we store all the data
         private decimal First = 0.0m;
@@ -43,16 +45,27 @@ namespace Calculator_App
             {
                 DisplayBox.Clear();
             }
+            if (HasAns == true)
+            {
+                DisplayBox.Clear();
+                HasAns = false;
+            }
             DisplayBox.Text = DisplayBox.Text + btn.Text;
         }
 
         //Decimal Point Click Event
         private void DecimalPoint_Click(object sender, EventArgs e)
         {
-            if (!textBox1.Text.Contains('.'))
+            if (!DisplayBox.Text.Contains("."))
             {
-                DisplayBox.Text += '.';
+                DisplayBox.Text += ".";
             }
+        }
+
+        // Get previous answer
+        private void Answer_Click(object sender, EventArgs e)
+        {
+            DisplayBox.Text = Ans.ToString();
         }
 
         //Negative and Positive CLick Event
@@ -80,7 +93,6 @@ namespace Calculator_App
         private void OperationClick(object sender, EventArgs e)
         {
             Button op = (Button)sender;
-
             if (op.Text == "+")
             {
                 Save((int)Operations.addition);
@@ -105,6 +117,7 @@ namespace Calculator_App
         //Does the operation when = is clicked
         private void Equals_Click(object sender, EventArgs e)
         {
+            HasAns = true;
             Second = Convert.ToDecimal(DisplayBox.Text);
             switch(OperationType)
             {

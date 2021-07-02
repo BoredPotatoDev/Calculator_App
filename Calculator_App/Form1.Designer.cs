@@ -51,6 +51,7 @@ namespace Calculator_App
             this.DecimalPoint = new System.Windows.Forms.Button();
             this.Equals = new System.Windows.Forms.Button();
             this.Division = new System.Windows.Forms.Button();
+            this.Answer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // DisplayBox
@@ -75,9 +76,9 @@ namespace Calculator_App
             this.delete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.delete.Font = new System.Drawing.Font("Arial Rounded MT Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.delete.ForeColor = System.Drawing.Color.White;
-            this.delete.Location = new System.Drawing.Point(182, 104);
+            this.delete.Location = new System.Drawing.Point(185, 103);
             this.delete.Name = "delete";
-            this.delete.Size = new System.Drawing.Size(79, 68);
+            this.delete.Size = new System.Drawing.Size(163, 68);
             this.delete.TabIndex = 1;
             this.delete.Text = "⌫";
             this.delete.UseVisualStyleBackColor = false;
@@ -90,9 +91,9 @@ namespace Calculator_App
             this.ClearEntry.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.ClearEntry.Font = new System.Drawing.Font("Arial Rounded MT Bold", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ClearEntry.ForeColor = System.Drawing.Color.White;
-            this.ClearEntry.Location = new System.Drawing.Point(12, 104);
+            this.ClearEntry.Location = new System.Drawing.Point(13, 103);
             this.ClearEntry.Name = "ClearEntry";
-            this.ClearEntry.Size = new System.Drawing.Size(79, 68);
+            this.ClearEntry.Size = new System.Drawing.Size(80, 68);
             this.ClearEntry.TabIndex = 2;
             this.ClearEntry.Text = "CE";
             this.ClearEntry.UseVisualStyleBackColor = false;
@@ -107,7 +108,7 @@ namespace Calculator_App
             this.Clear.ForeColor = System.Drawing.Color.White;
             this.Clear.Location = new System.Drawing.Point(98, 103);
             this.Clear.Name = "Clear";
-            this.Clear.Size = new System.Drawing.Size(79, 68);
+            this.Clear.Size = new System.Drawing.Size(81, 68);
             this.Clear.TabIndex = 3;
             this.Clear.Text = "C";
             this.Clear.UseVisualStyleBackColor = false;
@@ -181,7 +182,7 @@ namespace Calculator_App
             this.Addition.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Addition.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Addition.ForeColor = System.Drawing.Color.White;
-            this.Addition.Location = new System.Drawing.Point(268, 104);
+            this.Addition.Location = new System.Drawing.Point(269, 177);
             this.Addition.Name = "Addition";
             this.Addition.Size = new System.Drawing.Size(79, 68);
             this.Addition.TabIndex = 8;
@@ -241,7 +242,7 @@ namespace Calculator_App
             this.Subtraction.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Subtraction.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Subtraction.ForeColor = System.Drawing.Color.White;
-            this.Subtraction.Location = new System.Drawing.Point(268, 177);
+            this.Subtraction.Location = new System.Drawing.Point(269, 250);
             this.Subtraction.Name = "Subtraction";
             this.Subtraction.Size = new System.Drawing.Size(79, 68);
             this.Subtraction.TabIndex = 12;
@@ -301,7 +302,7 @@ namespace Calculator_App
             this.Multiplcation.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Multiplcation.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Multiplcation.ForeColor = System.Drawing.Color.White;
-            this.Multiplcation.Location = new System.Drawing.Point(267, 251);
+            this.Multiplcation.Location = new System.Drawing.Point(268, 324);
             this.Multiplcation.Name = "Multiplcation";
             this.Multiplcation.Size = new System.Drawing.Size(79, 68);
             this.Multiplcation.TabIndex = 16;
@@ -346,9 +347,9 @@ namespace Calculator_App
             this.Equals.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Equals.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Equals.ForeColor = System.Drawing.Color.White;
-            this.Equals.Location = new System.Drawing.Point(267, 399);
+            this.Equals.Location = new System.Drawing.Point(183, 472);
             this.Equals.Name = "Equals";
-            this.Equals.Size = new System.Drawing.Size(79, 68);
+            this.Equals.Size = new System.Drawing.Size(163, 69);
             this.Equals.TabIndex = 19;
             this.Equals.Text = "=";
             this.Equals.UseVisualStyleBackColor = false;
@@ -361,7 +362,7 @@ namespace Calculator_App
             this.Division.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Division.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Division.ForeColor = System.Drawing.Color.White;
-            this.Division.Location = new System.Drawing.Point(267, 325);
+            this.Division.Location = new System.Drawing.Point(268, 398);
             this.Division.Name = "Division";
             this.Division.Size = new System.Drawing.Size(79, 68);
             this.Division.TabIndex = 20;
@@ -369,12 +370,28 @@ namespace Calculator_App
             this.Division.UseVisualStyleBackColor = false;
             this.Division.Click += new System.EventHandler(this.OperationClick);
             // 
+            // Answer
+            // 
+            this.Answer.BackColor = System.Drawing.Color.Gray;
+            this.Answer.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.Answer.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.Answer.Font = new System.Drawing.Font("Arial Rounded MT Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Answer.ForeColor = System.Drawing.Color.White;
+            this.Answer.Location = new System.Drawing.Point(13, 472);
+            this.Answer.Name = "Answer";
+            this.Answer.Size = new System.Drawing.Size(164, 68);
+            this.Answer.TabIndex = 21;
+            this.Answer.Text = "ANS";
+            this.Answer.UseVisualStyleBackColor = false;
+            this.Answer.Click += new System.EventHandler(this.Answer_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(358, 479);
+            this.ClientSize = new System.Drawing.Size(358, 554);
+            this.Controls.Add(this.Answer);
             this.Controls.Add(this.Division);
             this.Controls.Add(this.Equals);
             this.Controls.Add(this.DecimalPoint);
@@ -433,6 +450,7 @@ namespace Calculator_App
         private System.Windows.Forms.TextBox DisplayBox;
         private System.Windows.Forms.Button Backspace;
         private System.Windows.Forms.Button delete;
+        private System.Windows.Forms.Button Answer;
     }
 }
 
